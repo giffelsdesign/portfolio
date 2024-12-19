@@ -1,0 +1,215 @@
+/* Grundlegendes Reset */
+:root {
+    --black: rgb(51, 49, 50);
+    --white: rgb(242, 244, 245);
+    --blue: rgb(109, 205, 229);
+    --dark-blue: rgb(0, 97, 135);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Neue Montreal Medium;
+    src: url(fonts/PPNeueMontreal-Medium.otf);
+}
+
+@font-face {
+    font-family: Neue Montreal Book;
+    src: url(fonts/PPNeueMontreal-Book.otf);
+}
+
+@font-face {
+    font-family: Neue Montreal Bold;
+    src: url(fonts/PPNeueMontreal-Bold.otf);
+}
+
+body {
+    font-family: Neue Montreal Medium;
+    line-height: 1.6;
+    background-color: var(--white);
+    color: var(--black);
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Vertikal zentrieren */
+}
+
+.logo-icon {
+    width: 40px; /* Breite des Logos */
+    height: 40px; /* Höhe des Logos */
+    transition: all 0.3s ease; /* Animation für Hover */
+}
+
+/* Logo-Farbe und Hover-Effekt */
+.logo-icon :hover {
+    fill: var(--blue); /* Beispiel: Füllfarbe ändern */
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a.active {
+    color: var(--blue); /* Aktiver Link */
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+/* About Section */
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-text h2 {
+    font-family: Neue Montreal Medium;
+}
+
+.about-text p {
+    font-family: Neue Montreal Book;
+    font-size: 1.3rem;
+    color: var(--black);
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Responsivität */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+/* Work-Container - Grid Layout */
+.work-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Genau 3 Spalten */
+    gap: 20px; /* Abstand zwischen den Projekten */
+    padding: 20px;
+    max-width: 1200px; /* Maximalbreite für das Grid */
+    margin: 0 auto; /* Zentrierung */
+}
+
+@media (max-width: 768px) {
+    .work-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf Tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .work-container {
+        grid-template-columns: 1fr; /* 1 Spalte auf Smartphones */
+    }
+}
+
+/* Projekt-Bilder */
+.project {
+    overflow: hidden; /* Verhindert Überlauf */
+    aspect-ratio: 1 / 1; /* Erzwingt quadratische Box */
+    background-color: var(--white); /* Fallback-Hintergrund */
+}
+
+.project img {
+    width: 100%; /* Volle Breite */
+    height: 100%; /* Volle Höhe */
+    object-fit: cover; /* Passt das Bild an, ohne es zu verzerren */
+    display: block;
+    transition: filter 0.1s ease;
+}
+
+/* Dunkel-Effekt beim Hover */
+.project:hover img {
+    filter: brightness(50%); /* Bild abdunkeln */
+}
+
+
+
+
+
+
+/* Kontakt-Seite Container */
+.contact-container {
+    display: flex; /* Flexbox zur Zentrierung */
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center; /* Vertikal zentrieren */
+    min-height: calc(100vh - 164px); /* Höhe minus Navbar-Höhe */
+    box-sizing: border-box; /* Padding korrekt berechnen */
+    text-align: center; /* Text zentrieren */
+}
+
+/* Klickbare E-Mail */
+.contact-email {
+    font-size: 2.5em; /* Schriftgröße */
+    text-decoration: none; /* Standard-Link-Underline entfernen */
+    color: var(--black); /* Textfarbe */
+    transition: color 0.1s; /* Sanfter Farbwechsel */
+}
+
+.contact-email:hover {
+    color: var(--blue); /* Farbe beim Hover (z.B. Blau) */
+}
+
